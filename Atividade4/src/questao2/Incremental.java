@@ -2,7 +2,7 @@ package questao2;
 
 public class Incremental {
 
-	private volatile static Incremental uniquelInstance = new Incremental();
+	private volatile static Incremental uniquelInstance;
 	private static int count;
 
 	private Incremental() {
@@ -10,6 +10,13 @@ public class Incremental {
 	}
 
 	public static Incremental getInstance() {
+		if(uniquelInstance == null){
+			synchronized (Incremental.class) {
+				if(uniquelInstance == null){
+					uniquelInstance = new Incremental();
+				}
+			}
+		}
 		return uniquelInstance;
 	}
 

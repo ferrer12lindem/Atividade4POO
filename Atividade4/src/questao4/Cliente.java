@@ -2,7 +2,7 @@ package questao4;
 
 public class Cliente{
 
-	private static SomadorEsperado somador = new SomaEsperado();
+	private volatile static SomadorEsperado somador = new SomaEsperado();
 	private static Cliente cliente;
 	Adaptador adapter = new Adaptador(somador);
 	
@@ -12,7 +12,11 @@ public class Cliente{
 	
 	public static Cliente getInstance(){
 		if(cliente == null){
-			cliente = new Cliente(somador);
+			synchronized (Cliente.class) {
+				if(cliente == null){
+					cliente = new Cliente(somador);
+				}
+			}			
 		}
 	return cliente;
 	}
@@ -20,6 +24,6 @@ public class Cliente{
 	public void executar(){
 		int[] vetor = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 		int soma = somador.somaVetor(vetor);
-		System.out.println("Resultado normal: "+soma);
+		System.out.println("Resultado: "+soma);
 	}
 }

@@ -3,9 +3,9 @@ import java.util.Random;
 
 public class MedidorFarenheit implements MedidorFarenheitIF{
     
-	private Random random = new Random();
+	protected Random random = new Random();
 	
-	public MedidorFarenheit(Random random){
+	public MedidorFarenheit(Random random) {
 		this.random = random;
 	}
 	public double getTemperaturaFarenheit(){

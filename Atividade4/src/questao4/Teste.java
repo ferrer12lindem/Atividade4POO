@@ -7,9 +7,11 @@ public class Teste {
 	public static void main(String[] args) {
 		
 		int vetor[] = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+		
 		Cliente cliente = Cliente.getInstance();
 		SomadorEsperado somaEsperada = new SomaEsperado();
 		
+		System.out.print("Exemplo de impressão esperada pelo cliente: ");
 		cliente.executar();
 		somaEsperada.somaVetor(vetor);
 		SomadorExiste adapter = new Adaptador(somaEsperada);

@@ -13,4 +13,11 @@ public class MedidorCelsius implements MedidorCelsiusIF {
 		return this.valor;
 	}
 
+	public double getValor(){
+		return this.valor;
+	}
+	
+	public void setValor(double valor){
+		this.valor = valor;
+	}
 }

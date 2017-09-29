@@ -10,7 +10,7 @@ public class AdaptadorFarenheitParaCelsiusObjectAdapter implements MedidorFarenh
 	
 	@Override
 	public double getTemperaturaFarenheit() {
-        double resposta = (medeFarenheit.getTemperaturaFarenheit()-32)/18;
+        double resposta = (medeFarenheit.getTemperaturaFarenheit()-32) /1.8;
         return resposta;
 	}
 
